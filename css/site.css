@@ -748,3 +748,14 @@ html.intro-on .hero-title .ln:nth-child(2) > * { animation-delay: 3.02s; }
 html.intro-on .hero-title .ln:nth-child(3) > * { animation-delay: 3.16s; }
 html.intro-on .hero-foot { opacity: 0; animation: show .9s var(--ease) 3.3s forwards; }
 .bar .logo { transition: opacity .35s var(--ease); }
+/* v12: the films block grows on wide screens to fill the left (26/11) */
+@media (min-width: 1000px) {
+  .films-in { grid-template-columns: minmax(0, 2.5fr) minmax(0, 3.4fr) minmax(0, 6.2fr); }
+  .films-copy .h { font-size: clamp(2.8rem, 4.3vw, 5.6rem); }
+  .films-copy .films-p { font-size: clamp(15px, 1.1vw, 19px); }
+  .films-in > .films-plate .board-villa { max-height: none; }
+  .films-copy .films-list b { font-size: clamp(21px, 1.6vw, 30px); }
+  .films-copy .films-list i { font-size: clamp(15px, 1.1vw, 19px); }
+  .films-copy .films-list button { padding: clamp(14px, 1.3vw, 22px) 0; grid-template-columns: 40px 1fr; }
+}
+@media (min-width: 1500px) { .films-in { max-width: min(1680px, 100%); } }

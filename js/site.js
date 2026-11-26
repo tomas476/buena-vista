@@ -195,7 +195,10 @@
   if (!intro || !root.classList.contains('intro-on')) return;
   const svg = intro.querySelector('svg'), dest = document.querySelector('#bar .logo .logo-svg');
   const done = () => { root.classList.remove('intro-on'); intro.remove(); };
+  const skip = () => { if (scrollY > 40 && root.classList.contains('intro-on')) { removeEventListener('scroll', skip); done(); } };
+  addEventListener('scroll', skip, { passive: true });
   setTimeout(() => {
+    if (!root.classList.contains('intro-on')) return;
     if (!dest || scrollY > 40) { intro.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, fill: 'forwards' }).onfinish = done; return; }
     const a = svg.getBoundingClientRect(), b = dest.getBoundingClientRect();
     const k = b.width / a.width;
